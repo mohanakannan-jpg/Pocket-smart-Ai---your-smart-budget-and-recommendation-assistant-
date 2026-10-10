@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.env
+.venv/
+__pycache__/
+*.pyc
+backend/pocketsmart.db
+uploads/
+coverage/
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
