@@ -16,8 +16,8 @@ def find_products(query: str = "", category: str = "") -> list[dict[str, Any]]:
     return [p for p in CATALOG if (not category or p["category"] == category) and all(t in (p["name"]+p["description"]).lower() for t in tokens)]
 
 def rank_products(category: str, budget: int) -> list[dict[str, Any]]:
-    items = find_products(category=category)
-    return sorted(items, key=lambda p: (p["price"] > budget, p["price"]))
+    items = [p for p in find_products(category=category) if p["price"] <= budget]
+    return sorted(items, key=lambda p: p["price"])
 
 def generate_required_items(planner_type: str, categories: list[dict[str, Any]], preferences: dict[str, Any]) -> list[dict[str, str]]:
     """Create an editable, price-free checklist from the user's supplied context.

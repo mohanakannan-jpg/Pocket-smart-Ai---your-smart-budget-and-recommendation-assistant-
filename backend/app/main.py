@@ -79,7 +79,7 @@ def recommendations(data:RecommendationIn):
     elif result["remaining"]:
         explanation=f"You have ₹{result['remaining']/100:,.0f} unallocated. Keep it as a contingency or compare higher-quality options."
     else: explanation="Your estimated plan matches the selected budget."
-    matching=rank_products(data.plannerType,result["remaining"] if result["remaining"]>0 else data.budget)
+    matching=rank_products(data.plannerType,max(0,result["remaining"]))
     advice=get_advice(data.plannerType,data.preferences,result["remaining"],result["overBudget"])
     recommendations=[{"title":"Budget-aware guidance","reason":explanation,"source":"deterministic fallback"}]
     if advice: recommendations.insert(0,{**advice.model_dump(),"source":"AI-enhanced explanation (validated)"})

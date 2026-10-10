@@ -7,7 +7,7 @@ PocketSmart AI is a calculation-first budgeting assistant for home interiors, pa
 - Three editable planners: Home Interior, Party & Event, and Jewelry.
 - Server-side integer-minor-unit arithmetic: category totals, verified versus illustrative spend, remaining amount, utilization, over-budget warnings, and unpriced-item handling.
 - Registration, login, signed expiring bearer sessions, scrypt password hashes, and ownership-enforced saved plans.
-- Local illustrative product catalog, explicitly labelled as non-live data.
+- Budget-aware illustrative product suggestions filtered to the plan's remaining budget; catalog entries are explicitly labelled as non-live data.
 - Optional Gemini configuration point. Core calculations and recommendation fallback work without any AI key.
 - Responsive React interface with form validation, empty states, errors, and save/reopen workflow.
 
